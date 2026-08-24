@@ -1,0 +1,9 @@
+version: 2
+updates:
+  # npm の依存関係パッケージをスキャン対象とする
+  - package-ecosystem: "npm"
+    # ルートディレクトリ配下の package.json を対象とする
+    directory: "/"
+    schedule:
+      # 毎日更新プログラムをチェックする
+      interval: "daily"
