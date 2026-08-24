@@ -2,12 +2,9 @@ name: "CodeQL Analysis"
 
 on:
   push:
-    branches: [ "main", "master" ]
+    branches: [ "main" ]
   pull_request:
-    branches: [ "main", "master" ]
-  schedule:
-    # 毎週日曜日の 00:00 UTC に定期実行
-    - cron: '0 0 * * 0'
+    branches: [ "main" ]
 
 jobs:
   analyze:
@@ -35,7 +32,6 @@ jobs:
         # 必要に応じてクエリパックを指定（デフォルトでも十分な検出が可能）
         queries: security-extended,security-and-quality
 
-    # 静的解析の実行
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v3
       with:
