@@ -31,3 +31,15 @@ app.get('/eval', (req, res) => {
     res.status(500).send(`Error: ${e.message}`);
   }
 });
+
+// 脆弱性 3: ハードコードされた認証情報 (Hardcoded Secrets / Tokens)
+// API キーなどのシークレット情報がプレーンテキストでハードコードされている
+const SLACK_BOT_TOKEN = "xoxb-123456789012-345678901234-abcdefghijklmnopqrstuvwx";
+
+app.get('/', (req, res) => {
+  res.send('CodeQL Vulnerability Test Server is running.');
+});
+
+app.listen(port, () => {
+  console.log(`Server listening on port ${port}`);
+});
